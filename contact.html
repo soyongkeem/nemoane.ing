@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEMOANE: 연락처</title>
+    <header class="header">
+        <div class="title">
+            <a href="index.html">
+                <span class="eng">NEMOANE</span>
+                <img src="logo.png" alt="네모아네 로고" class="kor">
+            </a>
+        </div>
+    </header>
+    
+</head>
+
+<link rel="stylesheet" href="style.css">
+<body>
+    <div class="sidebar">
+        <ul class="menu">
+            <li><a href="about.html">소개</a></li>
+            <li><a href="news.html">소식</a></li>
+            <li><a href="archive.html">아카이브</a></li>
+            <li><a href="contact.html" class="active">연락처</a></li>
+        </ul>
+        <div class="apply-section">
+            <a href="https://docs.google.com/document/d/1MTmKOoxpbpkeVu02SFKdNPQS-OcMHnBbo0Pmj09LN8Y/edit?usp=sharing" class="apply-button"><strong>학회 지원하기 &gt;</strong></a>
+        </div>
+    </div>
+    
+
+
+    <div class="content">
+        Instagram: @nemoane.seoul
+        <br>contact: nemoane.official@gmail.com
+        <br>
+        <br>Webdesign:soyongkeem@gmail.com
+        <br>Copyright©2025. NEMOANE
+    </div>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const circle = document.createElement("div");
+    circle.classList.add("cursor-circle");
+    document.body.appendChild(circle);
+
+    let mouseX = 0, mouseY = 0;
+    let circleX = 0, circleY = 0;
+    const speed = 0.6;
+
+    document.addEventListener("mousemove", function (e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animate() {
+        circleX += (mouseX - circleX) * speed;
+        circleY += (mouseY - circleY) * speed;
+
+        circle.style.left = `${circleX}px`;
+        circle.style.top = `${circleY}px`;
+
+        requestAnimationFrame(animate);
+    }
+    animate(); //
+})
+</script>
+</html>

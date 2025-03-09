@@ -1,0 +1,276 @@
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #3d3d3d; /* 회색 구분선 */
+    margin: 20px 0; /* 위아래 여백 조정 */
+}
+
+@font-face {
+    font-family: 'GothicA1-Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/GothicA1-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    unicode-range: U+AC00-D7A3;
+}
+.cursor-circle {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border: 2px dotted black;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -46%);
+}
+
+body {
+    font-family: 'Courier New', 'GothicA1-Light', monospace;
+    background-color: #BFE3BF;
+    color: black;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: 60px auto;
+    height: 100vh;
+}
+
+.header {
+    grid-column: span 3;
+    background: #A3D9A5;
+    border-bottom: 2px solid black;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    position: relative;
+}
+
+.title {
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    width: max-content;
+}
+
+.title a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    display: inline-block;
+}
+
+.title a .eng {
+    font-size: 36px;
+    visibility: visible;
+}
+
+.title a .kor {
+    margin-top: 9px;
+    height: 64%;
+    width: 104px;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.title a:hover .eng {
+    visibility: hidden;
+}
+
+.title a:hover .kor {
+    visibility: visible;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar {
+    background-color: #A3D9A5;
+    padding: 20px;
+    border-right: 2px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+}
+
+.menu li {
+    margin-bottom: 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    display: block;
+    padding: 5px;
+}
+
+.apply-button {
+    color: #000;
+    font-size: 18px;
+    padding: 5px;
+    position: absolute;
+    bottom: 50px;
+}
+
+.menu a:hover {
+    background-color: #8ECF91;
+}
+.menu a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.home-main {
+    padding: 30px;
+}
+
+.home-main h1 {
+    font-size: 30px;
+    margin-top: -4px;
+    padding-top: 0;
+    margin-bottom: 30px;
+}
+
+.ascii-art {
+    font-family: monospace;
+    white-space: pre-wrap;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.content {
+    font-size: 18px;
+    margin-top: 0;
+    padding: 30px;
+    line-height: 190%;
+}
+.content h3{
+    font-size: 22px;
+    margin: 0;
+
+}
+
+
+.content p {
+    max-width: 680px; /* 원하는 최대 폭 설정 */
+    word-wrap: break-word;
+    overflow: hidden;
+    white-space: normal;
+}
+
+
+.fixed-gif {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 50px; /* 원하는 크기로 조절 가능 */
+    height: auto;
+    z-index: 1000;
+}
+
+/* 모바일 & 아이패드 반응형 스타일 */
+@media (max-width: 1024px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px auto;
+        
+    }
+    .cursor-circle {
+        display: none;
+    }
+        .hamburger {
+            right: 15px;
+        }
+        .ascii-art {
+            display: none;
+        }
+        .cursor-circle {
+            display: none;
+        }
+
+    .sidebar {
+        display: none;
+    }
+    .menu li {
+        margin-bottom: 10px;
+    }
+    .hamburger {
+        display: block;
+        position: absolute;
+        align-items: center;
+        top: 15px;
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 4px;
+        background-color: white;
+        margin: 5px 0;
+    }
+    .fullscreen-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 1000;
+        transition: opacity 0.3s ease-in-out;
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    .fullscreen-menu ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }
+    
+    .fullscreen-menu li {
+        margin: 20px 0;
+    }
+    
+    .fullscreen-menu a {
+        text-decoration: none;
+        font-size: 24px;
+        color: white;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+    
+    .fullscreen-menu a:hover {
+        color: #A3D9A5;
+    }
+    
+    /* 활성화 시 보이게 */
+    .fullscreen-menu.open {
+        opacity: 1;
+        pointer-events: all;
+    }
+    
+    
+}
